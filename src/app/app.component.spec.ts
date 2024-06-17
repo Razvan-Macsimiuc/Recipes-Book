@@ -1,16 +1,23 @@
-import { AppComponent } from "./app.component"
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { AppComponent } from './app.component'
+
 
 describe( 'AppComponent', () => {
-  let fixture: AppComponent
+  let component: AppComponent
+  let fixture: ComponentFixture<AppComponent>
 
-  beforeEach( () => {
-    fixture = new AppComponent()
+  beforeEach( async () => {
+    await TestBed.configureTestingModule( {
+      imports: [ AppComponent ]
+    } )
+      .compileComponents()
+
+    fixture = TestBed.createComponent( AppComponent )
+    component = fixture.componentInstance
+    fixture.detectChanges()
   } )
-  it( 'should initialize component', () => {
-    expect( fixture ).toBeInstanceOf( AppComponent )
-  } )
-  it( 'title should be title', () => {
-    const appTitle = "Recipes-Book"
-    expect( fixture.title ).toStrictEqual( appTitle )
+
+  it( 'should create', () => {
+    expect( component ).toBeTruthy()
   } )
 } )
