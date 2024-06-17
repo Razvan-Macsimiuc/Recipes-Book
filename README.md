@@ -1,5 +1,7 @@
 # RecipesBook
 
+This project involves creating a user interface that allows users to search for recipes, display recipe details, and save recipes to a user's personal collection. Additionally, this project can incorporate external APIs to fetch recipe data and can involve the use of a database to store user data.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
 ## Development server
