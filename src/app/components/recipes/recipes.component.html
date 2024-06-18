@@ -1,0 +1,5 @@
+<ng-container *ngIf="recipesList$">
+  <div *ngFor="let recipe of recipesList$">
+    <p>{{ recipe.title }}</p>
+  </div>
+</ng-container>
