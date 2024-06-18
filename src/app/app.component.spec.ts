@@ -1,16 +1,29 @@
-import { AppComponent } from "./app.component"
+import { TestBed } from '@angular/core/testing';
+import { AppComponent } from './app.component';
 
-describe( 'AppComponent', () => {
-  let fixture: AppComponent
+describe('AppComponent', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AppComponent],
+    }).compileComponents();
+  });
 
-  beforeEach( () => {
-    fixture = new AppComponent()
-  } )
-  it( 'should initialize component', () => {
-    expect( fixture ).toBeInstanceOf( AppComponent )
-  } )
-  it( 'title should be title', () => {
-    const appTitle = "Recipes-Book"
-    expect( fixture.title ).toStrictEqual( appTitle )
-  } )
-} )
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  it(`should have the 'Recipes-Book' title`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('Recipes-Book');
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Recipes-Book');
+  });
+});

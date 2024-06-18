@@ -1,0 +1,16 @@
+<div class="search-bar">
+  <input
+    class="search-control"
+    type="text"
+    placeholder="Search"
+    [(ngModel)]="searchText"
+    #searchbar
+  />
+</div>
+<ng-container *ngIf="recipesList$">
+  <div class="recipes-container">
+    <div *ngFor="let recipe of recipesList$ | searchBarFilter : searchText">
+      <app-recipes-list [recipe]="recipe"></app-recipes-list>
+    </div>
+  </div>
+</ng-container>
