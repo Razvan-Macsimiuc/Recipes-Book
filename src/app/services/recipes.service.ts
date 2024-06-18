@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Recipe } from '../interfaces/recipe.interface'
+import { Recipes } from '../interfaces/recipe/recipe.interface'
 import { Observable } from 'rxjs'
 
 @Injectable( {
   providedIn: 'root'
 } )
 export class RecipesService {
-  private apiKey = 'bb51e782fb104b558005769229b9a172'
-  private recipesUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${ this.apiKey }`
+  private recipesUrl = `http://localhost:3000/recipes`
 
   constructor ( private http: HttpClient ) {}
 
-  getRecipes(): Observable<Recipe> {
-    const response = this.http.get<Recipe>( this.recipesUrl )
+  getRecipes(): Observable<Recipes> {
+    const response = this.http.get<Recipes>( this.recipesUrl )
     return response
   }
+
 }
